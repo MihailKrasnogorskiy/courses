@@ -2,12 +2,12 @@ package day6;
 
 public class Motorbike {
     private String model;
-    private int manufactureYear;
+    private int year;
     private String colour;
 
-    public Motorbike(String model, int manufactureYear, String colour) {
+    public Motorbike(String model, String colour, int year) {
         this.model = model;
-        this.manufactureYear = manufactureYear;
+        this.year = year;
         this.colour = colour;
     }
 
@@ -15,20 +15,20 @@ public class Motorbike {
         return model;
     }
 
-    public int getManufactureYear() {
-        return manufactureYear;
+    public int getyear() {
+        return year;
     }
 
     public String getColour() {
         return colour;
     }
 
-    void info() {
+    public void info() {
         System.out.println("Это мотоцикл");
     }
 
     public int yearDifference(int inputYear) {
-        return Math.abs(inputYear - manufactureYear);
+        return Math.abs(inputYear - year);
     }
 }
 

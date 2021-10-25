@@ -2,15 +2,15 @@ package day6;
 
 public class Car {
     private String model;
-    private int manufactureYear;
+    private int year;
     private String colour;
 
     public void setModel(String model) {
         this.model = model;
     }
 
-    public void setManufactureYear(int manufactureYear) {
-        this.manufactureYear = manufactureYear;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public void setColour(String colour) {
@@ -21,19 +21,19 @@ public class Car {
         return model;
     }
 
-    public int getManufactureYear() {
-        return manufactureYear;
+    public int getyear() {
+        return year;
     }
 
     public String getColour() {
         return colour;
     }
 
-    void info() {
+    public void info() {
         System.out.println("Это автомобиль");
     }
 
     public int yearDifference(int inputYear) {
-        return Math.abs(inputYear - manufactureYear);
+        return Math.abs(inputYear - year);
     }
 }

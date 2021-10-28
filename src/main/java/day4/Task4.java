@@ -9,13 +9,16 @@ public class Task4 {
         for (int i = 0; i < 100; i++) {
             arr[i] = rand.nextInt(10000);
         }
-        int max = 0;
+        int max = arr[0];
         int ind = 0;
-        for (int i = 1; i < 99; i++) {
-            int summ = arr[i - 1] + arr[i] + arr[i + 1];
+        for (int i = 0; i < 98; i++) {
+            int summ=0;
+            for (int j = 0; j < 3; j++) {
+                int summ = summ + arr[i + j];
+            }
             if (summ > max) {
                 max = summ;
-                ind = i - 1;
+                ind = i;
             }
         }
         System.out.println(max);

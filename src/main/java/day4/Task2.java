@@ -9,8 +9,8 @@ public class Task2 {
         for (int i = 0; i < 100; i++) {
             arr[i] = rand.nextInt(10000);
         }
-        int minNumber = 10000;
-        int maxNumber = 0;
+        int minNumber = arr[0];
+        int maxNumber = arr[0];
         int summ = 0;
         int tens = 0;
         for (int number : arr) {

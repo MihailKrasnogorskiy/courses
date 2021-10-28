@@ -46,15 +46,17 @@ public class Airplane {
     public void info() {
         System.out.println("Изготовитель: " + producer + ", год выпуска: " + year + ", длина: " + length + ", вес: " + weight + ", количество топлива в баке: " + fuel);
     }
+
     public void fillUp(int addFuel) {
         fuel += addFuel;
 
     }
+
     public static void compareAirplanes(Airplane airplane1, Airplane airplane2) {
-if (airplane1.getLength() > airplane2.getLength()) {
-    System.out.println("Первый самолет длиннее");
-}else if (airplane1.getLength() == airplane2.getLength()) {
-    System.out.println("Длины самолетов равны");
-} else System.out.println("Второй самолет длиннее");
+        if (airplane1.getLength() > airplane2.getLength()) {
+            System.out.println("Первый самолет длиннее");
+        } else if (airplane1.getLength() == airplane2.getLength()) {
+            System.out.println("Длины самолетов равны");
+        } else System.out.println("Второй самолет длиннее");
     }
 }

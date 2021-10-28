@@ -11,10 +11,11 @@ public class Task4 {
         }
         int max = arr[0];
         int ind = 0;
+        int summ;
         for (int i = 0; i < 98; i++) {
-            int summ=0;
+            summ = 0;
             for (int j = 0; j < 3; j++) {
-                int summ = summ + arr[i + j];
+                summ = summ + arr[i + j];
             }
             if (summ > max) {
                 max = summ;

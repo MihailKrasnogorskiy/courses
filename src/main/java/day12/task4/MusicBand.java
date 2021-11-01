@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MusicBand {
-    String name;
-    int year;
+    private String name;
+    private int year;
     List<String> members;
 
     public MusicBand(String name, int year, List<String> members) {

@@ -8,17 +8,13 @@ public class Circle extends Figure {
         this.r = r;
     }
 
-
-
     @Override
     public double area() {
-        double area = Math.PI * Math.pow(r, 2);
-        return area;
+        return Math.PI * Math.pow(r, 2);
     }
 
     @Override
     public double perimeter() {
-        double perimeter = Math.PI * 2 * this.r;
-        return perimeter;
+        return Math.PI * 2 * this.r;
     }
 }

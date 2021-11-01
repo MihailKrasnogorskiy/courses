@@ -3,8 +3,8 @@ package day11.task1;
 public class Warehouse {
     private int countPickedOrders;
     private int countDeliveredOrders;
-    public static final int PICKEDPLAN = 10000;
-    public static final int DELIVEREDPLAN = 10000;
+    public static final int PICKED_PLAN = 10000;
+    public static final int DELIVERED_PLAN = 10000;
 
     public int getCountDeliveredOrders() {
         return countDeliveredOrders;

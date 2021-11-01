@@ -6,14 +6,7 @@ public class Warrior extends Hero implements PhysAttack {
     public Warrior() {
         super.magicDef = 0;
         super.physDef = 80;
-        physAtt = 30;
-    }
-
-    public void physicalAttack(Hero hero) {
-        int damage = physAtt - physAtt * hero.physDef / 100;
-        if (damage <= hero.health) {
-            hero.health -= damage;
-        } else hero.health = 0;
+        super.physAtt = 30;
     }
 
     public String toString() {

@@ -5,7 +5,7 @@ public class Courier implements Worker {
     private static int salaryPerOrder = 100;
     private boolean isPayed = false;
     private Warehouse warehouse;
-    private static final int bonusSize = 50000;
+    private static final int BONUS_SIZE = 50000;
 
     public Courier(Warehouse warehouse) {
         this.warehouse = warehouse;
@@ -32,10 +32,10 @@ public class Courier implements Worker {
     @Override
     public void bonus() {
         if (getIsPayed() == false) {
-            if (warehouse.PICKEDPLAN > warehouse.getCountDeliveredOrders()) {
+            if (warehouse.PICKED_PLAN > warehouse.getCountDeliveredOrders()) {
                 System.out.println("Бонус пока не доступен");
             } else {
-                salary += bonusSize;
+                salary += BONUS_SIZE;
                 isPayed = true;
             }
         } else System.out.println("Бонус уже был выплачен");

@@ -1,8 +1,8 @@
 package day12.task3;
 
 public class MusicBand {
-    String name;
-    int year;
+    private String name;
+    private int year;
 
     public int getYear() {
         return year;

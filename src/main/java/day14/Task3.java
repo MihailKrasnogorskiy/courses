@@ -22,16 +22,15 @@ public class Task3 {
                 String[] splitLine = line.split(" ");
                 int age = Integer.parseInt(splitLine[1]);
                 if (age < 0) {
-                    try {
-                        throw new IOException();
-                    } catch (IOException e) {
-                        System.out.println("Некорректный входной файл");
-                        return null;
-                    }
+                    throw new IOException();
                 } else people.add(new Person(splitLine[0], age));
             }
+            scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
+            return null;
+        } catch (IOException e) {
+            System.out.println("Некорректный входной файл");
             return null;
         }
         return people;

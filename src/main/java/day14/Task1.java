@@ -15,6 +15,7 @@ public class Task1 {
         try {
             Scanner scanner = new Scanner(file);
             String line = scanner.nextLine();
+            scanner.close();
             String[] stringNumbers = line.split(" ");
             int summ = 0;
             int counter = 0;
@@ -23,14 +24,13 @@ public class Task1 {
                 counter++;
             }
             if (counter != 10) {
-                try {
-                    throw new IOException();
-                } catch (IOException e) {
-                    System.out.println("Некорректный входной файл");
-                }
+                throw new IOException();
             } else System.out.println(summ);
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
+
+        } catch (IOException e) {
+            System.out.println("Некорректный входной файл");
         }
     }
 }

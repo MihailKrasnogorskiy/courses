@@ -1,7 +1,6 @@
 package day11.task2;
 
 public class Magician extends Hero implements MagicAttack, PhysAttack {
-    private int physAtt;
     private int magicAtt;
 
     public Magician() {

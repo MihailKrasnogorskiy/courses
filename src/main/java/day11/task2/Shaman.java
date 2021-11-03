@@ -1,7 +1,6 @@
 package day11.task2;
 
 public class Shaman extends Hero implements Healer, MagicAttack, PhysAttack {
-    private int physAtt;
     private int magicAtt;
     private static final int HEAL_HIMSELF = 50;
     private static final int HEAL_TEAMMATE = 30;

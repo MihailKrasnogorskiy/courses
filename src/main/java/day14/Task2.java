@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
-        File file = new File("peopl");
+        File file = new File("people");
         System.out.println(parseFileToStringList(file));
     }
 
@@ -20,6 +20,7 @@ public class Task2 {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] splitLine = line.split(" ");
+                System.out.println(line);
                 int age = Integer.parseInt(splitLine[1]);
                 if (age < 0) {
                     throw new IOException();

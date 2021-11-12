@@ -12,7 +12,7 @@ public class Task1 {
         Map<String, Integer> wordsMap = new HashMap<>();
         File text = new File("src/main/resources/dushi.txt");
         Scanner scanner = new Scanner(text);
-        scanner.useDelimiter("[.,…:«;»„()?!\"\\s–]+");
+        scanner.useDelimiter("[.,…”:«;»„()?!\"\\s–]+");
         while (scanner.hasNext()) {
             String word = scanner.next();
             word = word.toLowerCase(Locale.ROOT);
@@ -25,7 +25,7 @@ public class Task1 {
         }
         scanner.close();
         List<Map.Entry<String, Integer>> wordsList = new ArrayList<>(wordsMap.entrySet());
-        Collections.sort(wordsList, new Comparator<Map.Entry<String, Integer>>() {
+        wordsList.sort(new Comparator<Map.Entry<String, Integer>>() {
             @Override
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
                 return o1.getValue().compareTo(o2.getValue());
@@ -33,7 +33,6 @@ public class Task1 {
         });
         for (int i = wordsList.size() - 1; i > wordsList.size() - 100; i--) {
             System.out.println(wordsList.get(i));
-        }
-        System.out.println(wordsMap.get("чичиков")); //Чичиков 604 раза
+        } //Чичиков 604 раза
     }
 }

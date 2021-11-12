@@ -50,7 +50,17 @@ public class Task3 {
             }
             int a = Math.abs(coordinatesSquare[0] - coordinatesSquare[2]);
             int b = Math.abs(coordinatesSquare[1] - coordinatesSquare[3]);
-            if (a == b) {
+            if (a == b & a != 0) {
+                if (coordinatesSquare[2] < coordinatesSquare[0]) {
+                    int x = coordinatesSquare[0];
+                    coordinatesSquare[0] = coordinatesSquare[2];
+                    coordinatesSquare[2] = x;
+                }
+                if (coordinatesSquare[3] < coordinatesSquare[1]) {
+                    int x = coordinatesSquare[1];
+                    coordinatesSquare[1] = coordinatesSquare[3];
+                    coordinatesSquare[3] = x;
+                }
                 return coordinatesSquare;
             } else System.out.println("Это не квадрат");
         }

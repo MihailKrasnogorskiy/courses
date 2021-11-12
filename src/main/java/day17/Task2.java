@@ -1,17 +1,10 @@
 package day17;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
-//        ChessPiece[][] chessPosition = {{ChessPiece.ROOK_BLACK, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.ROOK_BLACK, ChessPiece.KING_BLACK, ChessPiece.EMPTY},
-//                {ChessPiece.EMPTY, ChessPiece.ROOK_WHITE, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.PAWN_BLACK, ChessPiece.PAWN_BLACK, ChessPiece.EMPTY, ChessPiece.PAWN_BLACK},
-//                {ChessPiece.PAWN_BLACK, ChessPiece.EMPTY, ChessPiece.KNIGHT_BLACK, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.PAWN_BLACK, ChessPiece.EMPTY},
-//                {ChessPiece.QUEEN_BLACK, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.BISHOP_WHITE, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY},
-//                {ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.BISHOP_BLACK, ChessPiece.PAWN_WHITE, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY},
-//                {ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.BISHOP_WHITE, ChessPiece.PAWN_WHITE, ChessPiece.EMPTY, ChessPiece.EMPTY},
-//                {ChessPiece.PAWN_WHITE, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.QUEEN_WHITE, ChessPiece.EMPTY, ChessPiece.PAWN_WHITE, ChessPiece.EMPTY, ChessPiece.PAWN_WHITE},
-//                {ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.EMPTY, ChessPiece.ROOK_WHITE, ChessPiece.KING_WHITE, ChessPiece.EMPTY}};
         System.out.println("Введите количество ячеек в строке");
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
@@ -19,11 +12,15 @@ public class Task2 {
         scanner.close();
         ChessBoard chessBoard = new ChessBoard(chessPosition);
         chessBoard.print();
-
     }
 
     public static ChessPiece[][] generateChessPosition(int length) {
         ChessPiece[][] chessPosition = new ChessPiece[length][length];
+        for (int i = 0; i < chessPosition.length; i++) {
+            for (int j = 0; j < chessPosition.length; j++) {
+                chessPosition[i][j] = ChessPiece.EMPTY;
+            }
+        }
         figurePosition(ChessPiece.PAWN_WHITE, chessPosition);
         figurePosition(ChessPiece.PAWN_BLACK, chessPosition);
         figurePosition(ChessPiece.KING_WHITE, chessPosition);
@@ -36,14 +33,6 @@ public class Task2 {
         figurePosition(ChessPiece.QUEEN_WHITE, chessPosition);
         figurePosition(ChessPiece.ROOK_BLACK, chessPosition);
         figurePosition(ChessPiece.ROOK_WHITE, chessPosition);
-
-        for (int i = 0; i < chessPosition.length; i++) {
-            for (int j = 0; j < chessPosition.length; j++) {
-                if (chessPosition[i][j] == null) {
-                    chessPosition[i][j] = ChessPiece.EMPTY;
-                }
-            }
-        }
         return chessPosition;
     }
 

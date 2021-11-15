@@ -23,9 +23,9 @@ public class Task3 {
             }
             mapTaxi.put(taxiCars[0], new Point(taxiCars[1], taxiCars[2]));
         }
-        coordinatesSquare = validationSquare();
+        coordinatesSquare = inputCoordinatesSquare();
         for (int i = coordinatesSquare[0] + 1; i < coordinatesSquare[2]; i++) {
-            for (int j = coordinatesSquare[1]; j < coordinatesSquare[3]; j++) {
+            for (int j = coordinatesSquare[1]+1; j < coordinatesSquare[3]; j++) {
                 pointSet.add(new Point(i, j));
             }
         }
@@ -40,30 +40,41 @@ public class Task3 {
     }
 
 
-    public static int[] validationSquare() {
-        int[] coordinatesSquare = new int[4];
+    public static int[] inputCoordinatesSquare() {
         while (true) {
             System.out.println("Введите кооринаты противоположных вершин квадрата(x1, y1, x2, y2)");
             Scanner scanner = new Scanner(System.in);
-            for (int i = 0; i < 4; i++) {
-                coordinatesSquare[i] = scanner.nextInt();
+            String line = scanner.nextLine();
+            String[] splitLine = line.split(",");
+            int[] coordinatesSquare = new int[splitLine.length];
+            for (int i = 0; i < splitLine.length; i++) {
+                coordinatesSquare[i] = Integer.parseInt(splitLine[i]);
             }
-            int a = Math.abs(coordinatesSquare[0] - coordinatesSquare[2]);
-            int b = Math.abs(coordinatesSquare[1] - coordinatesSquare[3]);
-            if (a == b & a != 0) {
-                if (coordinatesSquare[2] < coordinatesSquare[0]) {
-                    int x = coordinatesSquare[0];
-                    coordinatesSquare[0] = coordinatesSquare[2];
-                    coordinatesSquare[2] = x;
-                }
-                if (coordinatesSquare[3] < coordinatesSquare[1]) {
-                    int x = coordinatesSquare[1];
-                    coordinatesSquare[1] = coordinatesSquare[3];
-                    coordinatesSquare[3] = x;
-                }
-                return coordinatesSquare;
+            if (validationCoordinatesSquare(coordinatesSquare)) {
+                return orderingCoordinates(coordinatesSquare);
             } else System.out.println("Это не квадрат");
         }
+    }
+
+    public static int[] orderingCoordinates(int[] coordinatesSquare) {
+        if (coordinatesSquare[2] < coordinatesSquare[0]) {
+            int x = coordinatesSquare[0];
+            coordinatesSquare[0] = coordinatesSquare[2];
+            coordinatesSquare[2] = x;
+        }
+        if (coordinatesSquare[3] < coordinatesSquare[1]) {
+            int x = coordinatesSquare[1];
+            coordinatesSquare[1] = coordinatesSquare[3];
+            coordinatesSquare[3] = x;
+        }
+        return coordinatesSquare;
+    }
+
+    public static boolean validationCoordinatesSquare(int[] coordinatesSquare) {
+        if(coordinatesSquare.length != 4) return false;
+        int a = Math.abs(coordinatesSquare[0] - coordinatesSquare[2]);
+        int b = Math.abs(coordinatesSquare[1] - coordinatesSquare[3]);
+        return a == b & a != 0;
     }
 }
 
